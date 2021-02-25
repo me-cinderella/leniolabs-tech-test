@@ -1,0 +1,6 @@
+@use './header.scss';
+@import './variables.scss';
+
+body {
+    color: $main-text-color;
+}

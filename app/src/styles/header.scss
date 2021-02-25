@@ -1,0 +1,11 @@
+@import './variables.scss';
+
+nav {
+    background-color: $brand-color;
+}
+
+.logo {
+    img {
+        width: 150px;
+    }
+}
