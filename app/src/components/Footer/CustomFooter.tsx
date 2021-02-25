@@ -2,9 +2,9 @@ import React from 'react';
 
 function CustomFooter() {
     return (
-        <footer className="bg-dark text-center text-white fixed-bottom">
-          <div className="text-center p-3">
-            © 2021 Copyright
+        <footer className="fixed-bottom">
+          <div className="text-left p-3">
+            <span>Copyright © 2021 Leniolabs_ LLC. All Rights Reserved.</span>
           </div>
         </footer>
     )

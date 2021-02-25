@@ -1,6 +1,8 @@
 @use './header.scss';
+@use './footer.scss';
 @import './variables.scss';
 
 body {
-    color: $main-text-color;
+    background-color: $body-bg-color;
+    color: $light-text-color;
 }

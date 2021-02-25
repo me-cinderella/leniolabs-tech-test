@@ -1,0 +1,10 @@
+@import './variables.scss';
+
+footer {
+    background-color: $footer-bg-color;
+
+    span {
+        color: $dark-text-color;
+        font-size: .8rem;
+    }
+}
