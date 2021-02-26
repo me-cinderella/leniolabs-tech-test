@@ -5,7 +5,6 @@ import App from './App';
 //redux and stores
 import { Provider } from 'react-redux';
 import store from './redux/reducers';
-import rootReducer from './redux/reducers';
 import fetchCongressMembers from './redux/actions/fetchActions';
 
 //app styles
@@ -14,7 +13,7 @@ import './styles/main.scss';
 
 import reportWebVitals from './reportWebVitals';
 
-rootReducer.dispatch(fetchCongressMembers())
+store.dispatch(fetchCongressMembers())
 
 const rootElement = document.getElementById('root')
 ReactDOM.render(

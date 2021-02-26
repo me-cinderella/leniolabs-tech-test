@@ -26,9 +26,10 @@ function CongressMembersList (props) {
     )
 }
 
-function mapStateToProps(state, props) {
+function mapStateToProps(state) {
+
     return {
-        congressMembers: state.congressMembers
+        congressMembers: state.search.searchResults.length > 0? state.search.searchResults : state.fetch.congressMembers
     };
 }
 

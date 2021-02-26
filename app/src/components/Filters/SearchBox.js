@@ -1,45 +1,45 @@
 import React, { useEffect } from "react";
 import { connect } from 'react-redux'
+import { search } from '../../redux/actions/filterActions';
 
 function SearchBox(props) {
 
-  const [search, setSearch] = React.useState("");
-  const [searchResults, setSearchResults] = React.useState([]);
+  const [searchValue, setSearchValue] = React.useState("");
+
   const handleChange = e => {
-    setSearch(e.target.value);
+    setSearchValue(e.target.value);
   };
 
   useEffect(() => {
+    const inputData = props.congressMembers;
+    props.search({searchValue, inputData});
 
-    const results = props.congressMembers.filter(item => {
-        return Object.keys(item).some(key => {
-            return (
-                (typeof item[key] === 'string' && item[key].includes(search.toLocaleLowerCase()))
-                || 
-                (typeof item[key] === 'number' && item[key] === Number(search.toLocaleLowerCase()))
-            )
-        });
-    });
-
-    setSearchResults(results);
-  }, [search]);
+  }, [searchValue]);
 
   return (
     <div className="App">
       <input
         type="text"
         placeholder="Search"
-        value={search}
+        value={searchValue}
         onChange={handleChange}
       />
+      <span className="search-state p-2">{props.searchState}</span>
     </div>
   );
 }
 
-function mapStateToProps(state, props) {
+function mapStateToProps(state) {
     return {
-        congressMembers: state.congressMembers
+        congressMembers: state.fetch.congressMembers,
+        searchState: state.search.searchState
     };
 }
 
-export default connect(mapStateToProps, null)(SearchBox);
+function mapDispatchToProps(dispatch) {
+    return {
+        search: (searchValue, inputData) => dispatch(search(searchValue, inputData)),
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SearchBox);
