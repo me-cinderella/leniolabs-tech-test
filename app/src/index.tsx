@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import Routes from './routes';
 
 //redux and stores
 import { Provider } from 'react-redux';
@@ -18,7 +18,7 @@ store.dispatch(fetchCongressMembers())
 const rootElement = document.getElementById('root')
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <Routes />
   </Provider>,
   rootElement
 )

@@ -13,6 +13,11 @@ function MemberCard(props) {
             <ListGroup.Item>titulo: {props.member.title}</ListGroup.Item>
             <ListGroup.Item>partido politico: {props.member.party}</ListGroup.Item>
             <ListGroup.Item>proximas elecciones: {props.member.next_election}</ListGroup.Item>
+            <ListGroup.Item>
+                <a href={`/${props.member.id}`}>
+                    ver en detalle
+                </a>
+            </ListGroup.Item>
         </ListGroup>
     </Card>
   )
@@ -20,9 +25,12 @@ function MemberCard(props) {
 
 function CongressMembersList (props) {
     return (
-        <Row className="members-list">
-            {props.congressMembers.map(member => <MemberCard key={member.id} member={member} /> )}
-        </Row>
+        <>
+            <h1 className="p-2">Lista senadores del congreso</h1>
+            <Row className="members-list">
+                {props.congressMembers.map(member => <MemberCard key={member.id} member={member} /> )}
+            </Row>
+        </>
     )
 }
 
