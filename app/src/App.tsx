@@ -8,7 +8,7 @@ function App() {
     <div>
       <Header />
       <main>
-        <h1>App</h1>
+        <h1 className="p-2">Lista senadores del congreso</h1>
         <CongressMembersList />
       </main>
       <Footer />
