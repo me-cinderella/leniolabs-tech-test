@@ -5,4 +5,9 @@
 body {
     background-color: $body-bg-color;
     color: $light-text-color;
+    overflow-x: hidden;
+}
+
+.members-list {
+    justify-content: space-between;
 }
