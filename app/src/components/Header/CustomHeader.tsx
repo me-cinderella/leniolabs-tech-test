@@ -1,5 +1,6 @@
 import React from 'react';
 import Logo from '../../assets/logo/leniolabs-logo.png';
+import Searchbox from '../Filters/SearchBox';
 
 function CustomHeader() {
     return (
@@ -12,6 +13,9 @@ function CustomHeader() {
                         alt="leniolabs logo" 
                     />
                 </a>
+            </div>
+            <div className="container searchbox">
+                <Searchbox />
             </div>
         </nav>
     )
