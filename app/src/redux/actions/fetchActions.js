@@ -7,12 +7,17 @@ export const fetchFail = error => ({
     payload: error
   });
   
-export const fetchSuccess = data => ({
-    type: 'FETCH_SUCCESS',
+export const fetchSuccess_members = data => ({
+    type: 'FETCH_SUCCESS_MEMBERS',
     payload: data
   });
 
-const fetchCongressMembers = () => {
+export const fetchSuccess_detail = data => ({
+    type: 'FETCH_SUCCESS_DETAIL',
+    payload: data
+  });
+
+export const fetchCongressMembers = () => {
     return async dispatch => {
 
         dispatch(fetchBegin());
@@ -26,8 +31,24 @@ const fetchCongressMembers = () => {
             .then(data => data.results[0].members)
             .catch(error => dispatch(fetchFail(error)))
 
-        dispatch(fetchSuccess(congressMembers));
+        dispatch(fetchSuccess_members(congressMembers));
     }
 }
 
-export default fetchCongressMembers;
+export const detail = (memberId) => {
+  return async dispatch => {
+
+      dispatch(fetchBegin());
+
+      let detailMember = await fetch(`https://api.propublica.org/congress/v1/members/${memberId}.json`,{  
+          headers: {
+            'X-API-Key': "S3Ldr00C0Z7h4ROyJ3SBXb859glusD76QEylQP1X",
+          }
+      })
+          .then(response => response.json())
+          .then(data => data.results[0])
+          .catch(error => dispatch(fetchFail(error)))
+
+      dispatch(fetchSuccess_detail(detailMember));
+  }
+}

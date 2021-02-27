@@ -1,9 +1,10 @@
 import { createStore, applyMiddleware, combineReducers} from 'redux';
 import thunk from 'redux-thunk'
-import { fetch, search } from './dataReducer.js';
+import { fetch, search, detail } from './dataReducer.js';
 
 const combinedReducers = combineReducers({
     fetch,
+    detail,
     search
 });
 

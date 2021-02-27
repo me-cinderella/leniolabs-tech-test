@@ -5,7 +5,7 @@ import Routes from './routes';
 //redux and stores
 import { Provider } from 'react-redux';
 import store from './redux/reducers';
-import fetchCongressMembers from './redux/actions/fetchActions';
+import { fetchCongressMembers } from './redux/actions/fetchActions';
 
 //app styles
 import 'bootstrap/dist/css/bootstrap.min.css';

@@ -1,5 +1,6 @@
 const fetchinitialState = {
     congressMembers: [],
+    detailMember: {},
     error: ''
 }
 
@@ -13,8 +14,21 @@ export const fetch = (state = fetchinitialState, action) => {
     switch (action.type) {
         case 'FETCH_BEGIN':
             return state;
-        case 'FETCH_SUCCESS':
+        case 'FETCH_SUCCESS_MEMBERS':
             return { ...state, congressMembers: action.payload };
+        case 'FETCH_FAILURE':
+            return { ...state, error: action.payload };
+        default:
+            return state;
+    }
+};
+
+export const detail = (state = fetchinitialState, action) => {
+    switch (action.type) {
+        case 'FETCH_BEGIN':
+            return state;
+        case 'FETCH_SUCCESS_DETAIL':
+            return { ...state, detailMember: action.payload };
         case 'FETCH_FAILURE':
             return { ...state, error: action.payload };
         default:
