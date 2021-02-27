@@ -11,19 +11,23 @@ function Member(props) {
   
     }, []);
 
-    function renderMemberData() {
+    const renderMemberData = () => { 
         const data = props.detailMember;
 
         delete data.roles;
 
-        return (
+        return Object.keys(data).map(key => {
+          return (
             <ListGroup className="list-group-flush">
-                {Object.keys(data).forEach(key => <ListGroup.Item>{data[key]}</ListGroup.Item> )}
-            </ListGroup>)
-	}
+              {`${key}: ${data[key]}`}
+            </ListGroup>
+            )
+        }
+    )}
 
+          
     return (
-        <Card className="col-3 m-5 text-dark">
+        <Card className="col-10 m-5 text-dark">
             <Card.Body>
                 <Card.Title>Detalle del miembro</Card.Title>
             </Card.Body>
